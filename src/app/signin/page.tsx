@@ -9,7 +9,7 @@ export default async function Page() {
         <form
           action={async () => {
             "use server";
-            await signIn("google");
+            await signIn();
           }}
         >
           <Button>Signin</Button>

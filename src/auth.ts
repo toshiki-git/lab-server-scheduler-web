@@ -2,6 +2,9 @@ import NextAuth, { NextAuthConfig } from "next-auth";
 import Google from "next-auth/providers/google";
 
 export const config: NextAuthConfig = {
+  theme: {
+    logo: "https://next-auth.js.org/img/logo/logo-sm.png",
+  },
   providers: [
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID,
