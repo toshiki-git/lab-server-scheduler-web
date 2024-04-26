@@ -1,4 +1,5 @@
 import { signIn, auth } from "@/auth";
+import { Button } from "@/components/ui/button";
 
 export default async function Page() {
   const session = await auth();
@@ -11,7 +12,7 @@ export default async function Page() {
             await signIn("google");
           }}
         >
-          <button>Signin</button>
+          <Button>Signin</Button>
         </form>
       </div>
     );
