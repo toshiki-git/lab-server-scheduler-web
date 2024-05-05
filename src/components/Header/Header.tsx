@@ -47,7 +47,7 @@ export const Header = async () => {
             <form
               action={async () => {
                 "use server";
-                await signIn();
+                await signIn("google");
               }}
             >
               <Button>Signin</Button>
