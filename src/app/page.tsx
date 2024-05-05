@@ -20,7 +20,6 @@ export default function CalendarPage() {
         allDay: selectInfo.allDay,
       };
       calendarApi.addEvent(event);
-      console.log(event);
     }
   };
 
