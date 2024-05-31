@@ -13,6 +13,31 @@ export const config: NextAuthConfig = {
   ],
   basePath: "/api/auth",
   callbacks: {
+    async signIn({ profile }) {
+      try {
+        const res = await fetch("http://localhost:8080/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: profile?.name,
+            email: profile?.email,
+            image_url: profile?.picture,
+          }),
+        });
+
+        if (!res.ok) {
+          console.error(`Error: ${res.statusText}`);
+          return false;
+        }
+
+        return true;
+      } catch (error) {
+        console.error("Error during signIn callback:", error);
+        return false;
+      }
+    },
     authorized({ request, auth }) {
       try {
         const { pathname } = request.nextUrl;
